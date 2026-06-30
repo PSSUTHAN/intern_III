@@ -8,10 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>Suthanthiran Senthilkumar</h1>
+        <div class="header-top">
+            <h1>Suthanthiran Senthilkumar</h1>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark Mode</button>
+        </div>
         <nav>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -22,36 +26,62 @@
             <div class="about-content">
                 <img src="SUTHANTHIRAN S.JPG" alt="Photo of Suthanthiran Senthilkumar" class="profile-photo">
                 <div>
+                    <p class="photo-hint" id="photoHint">Hover over the photo for a quick profile highlight.</p>
                     <p>I am a web development beginner from Vedaranyam, Tamil Nadu. I am currently learning HTML and building my first website as part of my Web Development internship at The Developers Arena.</p>
                     <p>Batch: 10-JUN-2026 | Email: pssuthanthiran@gmail.com</p>
+                    <button class="secondary-button" type="button" id="aboutToggle">Show More</button>
+                    <p class="hidden extra-detail" id="extraDetail">My current goal is to build responsive websites with HTML, CSS, and JavaScript, then improve them with clean layouts, reusable functions, and interactive user experiences.</p>
                 </div>
             </div>
         </section>
 
         <section id="skills">
             <h2>My Skills</h2>
-            <ul>
-                <li>HTML (Learning)</li>
-                <li>Web Development Basics</li>
-                <li>VS Code</li>
-                <li>Problem Solving</li>
-                <li>Communication</li>
+            <div class="skill-actions" aria-label="Skill category filters">
+                <button type="button" class="skill-filter active" data-category="all">All</button>
+                <button type="button" class="skill-filter" data-category="technical">Technical</button>
+                <button type="button" class="skill-filter" data-category="soft">Soft Skills</button>
+            </div>
+            <ul id="skillList">
+                <li data-category="technical">HTML (Learning)</li>
+                <li data-category="technical">CSS Styling</li>
+                <li data-category="technical">JavaScript Basics</li>
+                <li data-category="technical">VS Code</li>
+                <li data-category="soft">Problem Solving</li>
+                <li data-category="soft">Communication</li>
             </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Image Slider & Featured Project</h2>
+            <div class="project-viewer">
+                <button class="slider-button" type="button" id="previousProject" aria-label="Previous project">&#8249;</button>
+                <article class="project-card" id="projectCard" aria-live="polite">
+                    <p class="project-count" id="projectCount"></p>
+                    <h3 id="projectTitle"></h3>
+                    <p id="projectDescription"></p>
+                </article>
+                <button class="slider-button" type="button" id="nextProject" aria-label="Next project">&#8250;</button>
+            </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
-            <form action="#" method="post">
+            <form action="#" method="post" id="contactForm" novalidate>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
                 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
                 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
+                <span class="error-message" id="messageError"></span>
                 
                 <button type="submit">Send Message</button>
+                <p class="form-status" id="formStatus"></p>
             </form>
             
             <p>Phone: 9361436459</p>
@@ -60,7 +90,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Suthanthiran Senthilkumar. Built with HTML.</p>
+        <p>&copy; 2026 Suthanthiran Senthilkumar. Built with HTML, CSS, and JavaScript.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

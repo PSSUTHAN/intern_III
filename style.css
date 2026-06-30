@@ -8,6 +8,7 @@ body {
     line-height: 1.6;
     color: #243043;
     background-color: #f5f7fb;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 header {
@@ -17,8 +18,17 @@ header {
     padding: 35px 20px;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
 header h1 {
-    margin: 0 0 15px;
+    margin: 0;
     font-size: 34px;
 }
 
@@ -41,6 +51,23 @@ nav a:hover {
     background-color: #315a8f;
 }
 
+.theme-toggle,
+.secondary-button,
+.skill-filter,
+.slider-button {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.theme-toggle {
+    background-color: #ffffff;
+    color: #1f3a5f;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
 main {
     width: min(900px, 92%);
     margin: 35px auto;
@@ -52,6 +79,18 @@ section {
     padding: 28px;
     border-radius: 8px;
     box-shadow: 0 4px 14px rgba(31, 58, 95, 0.08);
+}
+
+.hidden {
+    display: none;
+}
+
+.extra-detail {
+    margin-bottom: 0;
+    padding: 14px;
+    border-left: 4px solid #2c8f7b;
+    background-color: #f0fbf8;
+    border-radius: 5px;
 }
 
 h2 {
@@ -73,6 +112,18 @@ h2 {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #e6edf7;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.profile-photo.highlight {
+    border-color: #2c8f7b;
+    transform: scale(1.04);
+}
+
+.photo-hint {
+    margin-top: 0;
+    color: #2c8f7b;
+    font-weight: bold;
 }
 
 ul {
@@ -81,6 +132,69 @@ ul {
 
 li {
     margin-bottom: 8px;
+}
+
+.skill-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.skill-filter,
+.secondary-button {
+    background-color: #edf3fb;
+    color: #1f3a5f;
+    padding: 9px 13px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.skill-filter.active,
+.skill-filter:hover,
+.secondary-button:hover {
+    background-color: #2c8f7b;
+    color: white;
+}
+
+.project-viewer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: stretch;
+    gap: 14px;
+}
+
+.project-card {
+    border: 1px solid #d7e0ec;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fbfdff;
+}
+
+.project-card h3 {
+    margin: 4px 0 8px;
+    color: #1f3a5f;
+}
+
+.project-count {
+    margin: 0;
+    color: #2c8f7b;
+    font-weight: bold;
+}
+
+.slider-button {
+    align-self: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #1f3a5f;
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.slider-button:hover {
+    background-color: #2c8f7b;
 }
 
 form {
@@ -107,6 +221,24 @@ textarea:focus {
     outline: none;
     border-color: #315a8f;
     box-shadow: 0 0 0 3px rgba(49, 90, 143, 0.15);
+}
+
+input.invalid,
+textarea.invalid {
+    border-color: #b42318;
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
+}
+
+.error-message {
+    min-height: 18px;
+    color: #b42318;
+    font-size: 14px;
+}
+
+.form-status {
+    margin: 0;
+    color: #2c8f7b;
+    font-weight: bold;
 }
 
 button {
@@ -139,6 +271,61 @@ footer p {
     margin: 0;
 }
 
+body.dark-mode {
+    color: #e7edf6;
+    background-color: #131923;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: #101724;
+}
+
+body.dark-mode section {
+    background-color: #1c2633;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+}
+
+body.dark-mode h2,
+body.dark-mode .project-card h3 {
+    color: #dce8f7;
+    border-bottom-color: #33445a;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .extra-detail {
+    background-color: #222e3d;
+    border-color: #33445a;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    color: #e7edf6;
+    background-color: #151d28;
+    border-color: #3a4b61;
+}
+
+body.dark-mode a,
+body.dark-mode .project-count,
+body.dark-mode .form-status,
+body.dark-mode .photo-hint {
+    color: #61d1b9;
+}
+
+body.dark-mode .theme-toggle,
+body.dark-mode .skill-filter,
+body.dark-mode .secondary-button {
+    background-color: #314154;
+    color: #f8fbff;
+}
+
+body.dark-mode .skill-filter.active,
+body.dark-mode .skill-filter:hover,
+body.dark-mode .secondary-button:hover,
+body.dark-mode .slider-button:hover {
+    background-color: #2c8f7b;
+}
+
 @media (max-width: 600px) {
     header h1 {
         font-size: 28px;
@@ -155,5 +342,19 @@ footer p {
 
     button {
         width: 100%;
+    }
+
+    .project-viewer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-card {
+        grid-column: 1 / -1;
+        order: -1;
+    }
+
+    .slider-button {
+        width: 100%;
+        border-radius: 5px;
     }
 }
